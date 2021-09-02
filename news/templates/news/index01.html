@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>27</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
+  <link rel="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js">
+  <style>
+      h1 {
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+<h1><a class="ui red label">HỆ THỐNG PHÂN TÍCH VÀ DỰ BÁO </a> </h1>
+<hr />
+<div id="tabs" >
+  <ul>
+    <li><a href="{% url 'news:addks' %}"><span>Thu thập dữ liệu</span></a></li>
+    <li><a href="{% url 'news:viewks' %}"><span>Kết quả thu thập</span></a></li>
+    <li><a href="{% url 'news:index' %}"><span>Chuẩn hóa Dữ liệu</span></a></li>
+    <li><a href="{% url 'news:index' %}"><span>Phân tích Dữ liệu</span></a></li>
+    <li><a href="{% url 'news:index' %}"><span>Mô hình Dự báo</span></a></li>
+    <li><a href="{% url 'news:index' %}"><span>Khuyến nghị </span></a></li>
+    <li><a rel="nofollow" target="_blank" href="{% url 'news:index' %}" title="explodingboy"><span>explodingboy</span></a></li>
+  </ul>
+</div>
+</body>
+</html>

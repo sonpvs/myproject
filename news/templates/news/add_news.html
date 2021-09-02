@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cập nhật tin bài</title>
+</head>
+<body>
+    <form action="{% url 'news:save' %}" method="post">
+    {% csrf_token %}
+            <table>
+            <tr>
+                <th>
+                    <label for="{{ f.title.id_for_title }}">Tiêu đề:</label>
+                </th>
+                <td>
+                    {{ f.title }}
+                <td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="{{ f.content.id_for_content }}">Nội dung:</label>
+                </th>
+               <td>
+                    {{ f.content }}
+               </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Thêm">
+                </td>
+            </tr>
+    </table>
+    </form>
+</body>
+</html>

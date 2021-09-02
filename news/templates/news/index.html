@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
+  <link rel="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js">
+  <style>
+      h1 {
+          text-align: center;
+          color: orange;
+      }
+  </style>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana; /* Arial --> */
+  padding: 10px;
+  background: #e9d8f4;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  color: #58257b;
+}
+
+.header h1 {
+  font-size: 40px;
+}
+
+.header p {
+  font-size: 20px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #58257b;
+}
+
+/* Định dạng link điều hướng */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Thay đổi màu liên kết khi di chuột qua */
+.topnav a:hover {
+  background-color: #db7093;
+  color: white;
+}
+
+/* Tạo hai cột không bằng nhau, float cạnh nhau */
+/* Cột trái */
+.leftcolumn { 
+  float: left;
+  width: 75%;
+}
+
+/* Cột phải */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #e9d8f4;
+  padding-left: 20px;
+}
+
+/* Hình ảnh tượng trưng */
+.fakeimg {
+  background-color: #baa1cc;
+  width: 100%;
+  padding: 0px;
+}
+
+/* Thêm định dạng thẻ cho bài viết */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear float khác sau các cột */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  margin-top: 10px;
+}
+
+/* Bố cục linh hoạt: các cột xếp chồng lên nhau thay vì cạnh nhau khi màn hình 
+có chiều rộng dưới 700px */
+@media screen and (max-width: 700px) {
+  .leftcolumn, .rightcolumn { 
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Bố cục linh hoạt: Thanh menu điều hướng xếp chồng lên nhau thay vì cạnh nhau
+khi màn hình có chiều rộng dưới 300px */
+@media screen and (max-width: 300px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+} 
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>HỆ THỐNG PHÂN TÍCH DỮ LIỆU VÀ DỰ BÁO</h1>
+  <p>Kiến thức - Kinh nghiệm - Trung thực - Hiệu quả</p>
+</div>
+<div class="topnav">
+  <a href="{% url 'news:addks' %}">Thu thập dữ liệu</a>
+  <a href="{% url 'news:viewks' %}">Kết quả khảo sát</a>
+  <a href="{% url 'news:viewdes' %}">Chuẩn hóa dữ liệu</a>
+  <a href="{% url 'news:index' %}">Phân tích dữ liệu</a>
+  <a href="{% url 'news:chart01' %}">Mô hình Dự báo</a>
+  <a href="{% url 'news:index' %}">Khuyến nghị</a>
+  <a href="{% url 'news:index' %}" style="float:right">Đăng nhập</a>
+  <a href="{% url 'news:index' %}" style="float:right">Đăng ký</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <div class="ui container">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+   
+  </div>
+
+
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Giới thiệu</h2>
+      <div class="fakeimg" style="height:128px;"><img src="{% static 'news/03.jpg' %}" alt="data science" style="width:100%;height:128px;"></div>
+      <p align="center">dainfo.com là trang về khoa học dữ liệu.</p>
+    </div>
+    <div class="card">
+      <h3>Nổi bật</h3>
+      <div class="fakeimg" style="height:128px;"><p><img src="{% static 'news/03.jpg' %}" alt="data science" style="width:100%;height:128px;"></p></div>
+      <div class="fakeimg" style="height:128px;"><p><img src="{% static 'news/03.jpg' %}" alt="data science" style="width:100%;height:128px;"></p></div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Facebook</p>
+      <p>YouTube</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h4>Giấy phép số 000/GP-BTTTT. Bộ TT&TT cấp ngày 30/09/2021.</h4>
+</div>
+
+</body>
+</html>

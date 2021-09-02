@@ -1,0 +1,33 @@
+{% extends 'news/index.html' %}
+{% block content %}
+<style>
+td {
+    height: 50px; 
+    width: 50px;
+  }
+
+#cssTable td 
+  {
+    text-align: center; 
+    vertical-align: middle;
+  }
+</style>
+<table class="ui single line celled unstackable bottom attached table"> 
+  <tr><td colspan="8" style="text-align: center; vertical-align: middle;" >{{ title }}</td></tr>
+  <tr> 
+    {% for value in data %} 
+      <th>{{ value }}</th>
+    {% endfor %} 
+
+    {% for _,row in data.iterrows %} 
+      <tr> 
+      {% for value in row %} 
+        <td>{{ value }}</td> 
+      {% endfor %} 
+      </tr> 
+    {% endfor %} 
+  </tr> 
+
+</table>
+
+{% endblock %}

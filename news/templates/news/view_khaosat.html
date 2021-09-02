@@ -1,0 +1,79 @@
+{% extends 'news/index.html' %}
+{% block content %}
+<div style="overflow:auto;">
+    <table class="ui single line celled unstackable bottom attached table">
+      <thead>
+        <tr><th>Mã ID</th>
+        <th>Điện thoại</th>
+        <th>Thôn</th>
+        <th>Xã</th>
+        <th>Huyện</th>
+        <th>Tỉnh</th>
+        <th>Địa bàn</th>
+        <th>Giới tính</th>
+        <th>Dân tộc</th>
+        <th>Tuỏi</th>
+        <th>Học vấn</th>
+        <th>Câu 1 a 1</th>
+        <th>Câu 1 a 2</th>
+        <th>Câu 1 b 1</th>
+        <th>Câu 1 b 2</th>
+        <th>Câu 1 c 1</th>
+        <th>Câu 1 c 2</th>
+        <th>Câu 2 a</th>
+        <th>Câu 2 b</th>
+
+      </tr></thead>
+      <tbody>
+        {% if khaosat %}  
+        {% for i in khaosat %}
+        <tr>
+          <th>{{ i.id }}</th>
+          <th>{{ i.dienthoai }}</th>
+          <th>{{ i.thon }}</th>
+          <th>{{ i.xa }}</th>
+          <th>{{ i.huyen }}</th>
+          <th>{{ i.tinh }}</th>
+          <th>{{ i.diaban }}</th>
+          <th>{{ i.gioitinh }}</th>
+          <th>{{ i.dantoc }}</th>
+          <th>{{ i.tuoi }}</th>
+          <th>{{ i.hocvan }}</th>
+          <th>{{ i.cau1a1 }}</th>
+          <th>{{ i.cau1a2 }}</th>
+          <th>{{ i.cau1b1 }}</th>
+          <th>{{ i.cau1b2 }}</th>
+          <th>{{ i.cau1c1 }}</th>
+          <th>{{ i.cau1c2 }}</th>
+          <th>{{ i.cau2a }}</th>
+          <th>{{ i.cau2b }}</th>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+</div>
+
+
+    <form action="{% url 'news:chrt' %}" method="post" class="ui form">
+        {% csrf_token %}
+      <table>  
+        <tr>
+        <th>
+        <input type="hidden" name="style" value="khac">
+        <button class="ui primary button" name= "nut" value='1'>
+        Biểu đồ Giới tính và Học vấn
+        </button>
+        </th>
+        <th>
+        <button class="ui primary button" name= "nut" value='2'>
+        Biểu đồ Tuổi và Học vấn
+        </button>
+        </th>
+      </tr>
+      </tr>
+      </table>    
+    </form>
+
+
+{% endblock %}
